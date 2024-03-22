@@ -3,5 +3,7 @@ export interface Product {
   title: string
   storename: string
   price: number
+  imagefile: File
+  imagename: string
   date: string
 }
