@@ -5,10 +5,10 @@ import { type IDataService } from './IDataService.ts';
 export class DataService implements IDataService {
   cardsArea = document.getElementById('CardsArea') as HTMLDivElement;
   backendUrl: string = import.meta.env.VITE_BACKENDURL;
-  products: Purchase[] = [];
+  purchases: Purchase[] = [];
 
   async FetchData (): Promise<void> {
-    this.products = await axios.get(`${this.backendUrl}/dailybuyer/getpurchases`).then(res => res.data);
+    this.purchases = await axios.get(`${this.backendUrl}/dailybuyer/getpurchases`).then(res => res.data);
     /*
     if (this.products.length > 0) {
       this.CreateCards();
@@ -17,8 +17,8 @@ export class DataService implements IDataService {
   }
 
   CreateCards (): void {
-    for (let i = 0; i < this.products.length - 1; i++) {
-      const purchase = this.products[i];
+    for (let i = 0; i < this.purchases.length - 1; i++) {
+      const purchase = this.purchases[i];
       const card = document.createElement('div');
       card.innerHTML = `
         <div class="flex flex-row items-center gap-2 rounded-2xl">
