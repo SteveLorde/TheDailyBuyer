@@ -1,4 +1,4 @@
-export interface Product {
+export interface Purchase {
   id: number
   title: string
   storename: string
@@ -6,4 +6,5 @@ export interface Product {
   imagefile: File
   imagename: string
   date: string
+  isverified: boolean
 }

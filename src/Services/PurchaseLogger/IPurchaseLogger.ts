@@ -1,5 +1,5 @@
-import type { Product } from '../../Data/Model/Product.ts';
+import type { Purchase } from '../../Data/Model/Purchase.ts';
 
 export interface IPurchaseLogger {
-  AddNewBought(newbought: Product): Promise<boolean>
+  AddNewBought(newbought: Purchase): Promise<boolean>
 }

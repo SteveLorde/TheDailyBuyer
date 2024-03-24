@@ -1,10 +1,10 @@
-import { type Product } from '../../Data/Model/Product.ts';
+import { type Purchase } from '../../Data/Model/Purchase.ts';
 import axios from 'axios';
 import { type IPurchaseLogger } from './IPurchaseLogger.ts';
 
 export class PurchaseLogger implements IPurchaseLogger {
   backendurl = import.meta.env.VITE_BACKENDURL;
-  async AddNewBought (newbought: Product): Promise<boolean> {
-    return await axios.post<boolean>(`${this.backendurl}/addbought`, newbought).then(res => res.data);
+  async AddNewBought (newPurchase: Purchase): Promise<boolean> {
+    return await axios.post<boolean>(`${this.backendurl}/dailybuyer/submitpurchase`, newPurchase).then(res => res.data);
   }
 }

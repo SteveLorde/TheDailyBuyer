@@ -2,7 +2,7 @@ import { type IPurchaseLogger } from './Services/PurchaseLogger/IPurchaseLogger.
 import { PurchaseLogger } from './Services/PurchaseLogger/PurchaseLogger.ts';
 import { type IDataService } from './Services/DataService/IDataService.ts';
 import { DataService } from './Services/DataService/DataService.ts';
-import { type Product } from './Data/Model/Product.ts';
+import { type Purchase } from './Data/Model/Purchase.ts';
 
 const dataService: IDataService = new DataService();
 const purchaseLogger: IPurchaseLogger = new PurchaseLogger();
@@ -22,7 +22,8 @@ async function SubmitPurchase (): Promise<void> {
   const formProductPrice = document.getElementById('ProductPrice') as HTMLInputElement;
   const formImageFile = document.getElementById('ImageFile') as HTMLInputElement;
 
-  const newproduct: Product = {
+  const newproduct: Purchase = {
+    isverified: true,
     id: 0,
     title: formProducTitle.value,
     storename: formStoreName.value,
@@ -35,5 +36,6 @@ async function SubmitPurchase (): Promise<void> {
   const check = await purchaseLogger.AddNewBought(newproduct);
   if (check) {
     form.reset();
+    await dataService.FetchData();
   }
 }

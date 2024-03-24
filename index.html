@@ -8,34 +8,39 @@
     <link rel="stylesheet" href="/src/style.css">
     <script type="module" src="/src/main.ts"></script>
   </head>
-  <body>
-    <h1 class="text-red-700 font-extrabold">TEST</h1>
+  <body class="bg-gray-800">
 
     <!---Input Section--->
-    <form id="form">
-      <div class="flex flex-row items-center justify-center">
-        <div>
-          <img id="PreviewImage" src="" />
-          <input class="hidden" type="file"/>
+    <form id="form" class="flex flex-col items-center mt-[40px] ">
+      <div id="PurchaseLoggerForm" class="PurchaseLogger flex flex-row flex-wrap items-center justify-center gap-4 bg-gray-700 p-9 md:rounded-[40px] border-2 border-gray-500">
+        <div class="p-2 border-2 rounded-2xl border-gray-500 min-h-[100px] min-w-[100px]">
+          <img class="fill-amber-200" id="PreviewImage" src="/ImagePickerPlaceHolder.svg" alt="productimage" />
+          <input type="file" class="hidden" />
         </div>
-        <div class="flex flex-col">
-          <input class="text-white" type="text" placeholder="Product Name" />
-          <div class="flex flex-row items-center">
-            <input class="text-white" placeholder="Store Name" />
-            <input class="text-white" placeholder="Price" />
+        <div class="flex flex-col gap-4">
+          <input class="text-white bg-transparent border-b-2" type="text" placeholder="Purchase Name" />
+          <div class="flex flex-row items-center gap-4">
+            <input class="text-white bg-transparent border-b-2" placeholder="Store Name" />
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input class="text-white bg-transparent border-b-2" placeholder="Price" />
+              <p class="text-2xl text-gray-300">Egp</p>
+            </div>
+
           </div>
         </div>
+        <div>
+          <input class="bg-blue-500 p-3 text-white font-bold rounded-3xl" type="submit" value="Submit" />
+        </div>
       </div>
-      <div>
-        <img src="" alt="submit what you purchased" />
-        <input type="submit" />
-      </div>
+
     </form>
 
-    <!---Cards Section--->
-    <section>
+    <h3 class="mt-8 mb-8 text-2xl text-gray-300 text-center font-bold ">TheDailyBuyer Website allows you to log and check what you and others have purchased in Egypt</h3>
 
-      <div id="CardsArea" class="flex flex-col lg:grid lg:grid-cols-3 flex-wrap">
+    <!---Cards Section--->
+    <section class="flex flex-col items-center">
+
+      <div id="CardsArea" class="flex flex-col items-center h-[500px] w-[500px] bg-gray-900 ">
 
       </div>
 
