@@ -9,10 +9,25 @@ const purchaseLogger: IPurchaseLogger = new PurchaseLogger();
 
 void dataService.FetchData();
 
-const InputSubmit = document.getElementById('submit') as HTMLInputElement;
+const imagePickerIcon = document.getElementById('PreviewImage') as HTMLImageElement;
+const imageInput = document.getElementById('ImageFileSelector') as HTMLInputElement;
+const InputSubmit = document.getElementById('SubmitButton') as HTMLInputElement;
 const form = document.getElementById('form') as HTMLFormElement;
 
-InputSubmit.addEventListener('submit', function () {
+imagePickerIcon.addEventListener('click', function () {
+  imageInput.click();
+});
+
+imageInput.addEventListener('change', function () {
+  const file = this.files[0];
+  const filereader = new FileReader();
+  filereader.onload = function () {
+    imagePickerIcon.src = filereader.result;
+  };
+  filereader.readAsDataURL(file);
+});
+
+InputSubmit.addEventListener('click', function () {
   void SubmitPurchase();
 });
 

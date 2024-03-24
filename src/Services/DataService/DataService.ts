@@ -9,9 +9,11 @@ export class DataService implements IDataService {
 
   async FetchData (): Promise<void> {
     this.products = await axios.get(`${this.backendUrl}/dailybuyer/getpurchases`).then(res => res.data);
+    /*
     if (this.products.length > 0) {
       this.CreateCards();
     }
+     */
   }
 
   CreateCards (): void {
