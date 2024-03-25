@@ -22,7 +22,7 @@ imageInput.addEventListener('change', function () {
   const file = this.files[0];
   const filereader = new FileReader();
   filereader.onload = function () {
-    imagePickerIcon.src = filereader.result;
+    imagePickerIcon.src = filereader.result as string;
   };
   filereader.readAsDataURL(file);
 });
