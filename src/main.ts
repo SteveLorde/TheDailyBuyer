@@ -19,12 +19,14 @@ imagePickerIcon.addEventListener('click', function () {
 });
 
 imageInput.addEventListener('change', function () {
-  const file = this.files[0];
+  const file = imageInput.files?.[0];
   const filereader = new FileReader();
   filereader.onload = function () {
     imagePickerIcon.src = filereader.result as string;
   };
-  filereader.readAsDataURL(file);
+  if (file !== undefined) {
+    filereader.readAsDataURL(file);
+  }
 });
 
 InputSubmit.addEventListener('click', function () {
