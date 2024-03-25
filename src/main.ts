@@ -50,9 +50,6 @@ async function SubmitPurchase (): Promise<void> {
     imagename: '',
     date: Date.now().toString()
   };
-  const check = await purchaseLogger.AddNewBought(newproduct);
-  if (check) {
-    form.reset();
-    await dataService.FetchData();
-  }
+  await purchaseLogger.AddNewBought(newproduct);
+  await dataService.FetchData();
 }
