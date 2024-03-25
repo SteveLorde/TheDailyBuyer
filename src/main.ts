@@ -12,7 +12,7 @@ void dataService.FetchData();
 const imagePickerIcon = document.getElementById('PreviewImage') as HTMLImageElement;
 const imageInput = document.getElementById('ImageFileSelector') as HTMLInputElement;
 const InputSubmit = document.getElementById('SubmitButton') as HTMLInputElement;
-const form = document.getElementById('form') as HTMLFormElement;
+//const form = document.getElementById('form') as HTMLFormElement;
 
 imagePickerIcon.addEventListener('click', function () {
   imageInput.click();
